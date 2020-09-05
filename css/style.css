@@ -121,20 +121,39 @@ body {
 .btn:visited {
   text-decoration: none;
   text-transform: uppercase;
-
+  display: inline-block;
   font-weight: 400;
+  border-radius: 100px;
+  transition: all 0.2s;
 }
 
 .btn:hover {
   transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .btn-white {
   color: #777;
   background-color: #fff;
   padding: 15px 40px;
-  display: inline-block;
+}
+
+.btn-animated {
+  animation: moveButton 1s ease-out;
+}
+
+@keyframes moveButton {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
