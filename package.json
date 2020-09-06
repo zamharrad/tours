@@ -1,0 +1,19 @@
+{
+  "name": "mytouresite",
+  "version": "1.0.0",
+  "description": "developing by using advance css",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zamharrad/tours.git"
+  },
+  "author": "zamharrad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zamharrad/tours/issues"
+  },
+  "homepage": "https://github.com/zamharrad/tours#readme"
+}
