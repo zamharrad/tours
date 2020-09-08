@@ -33,6 +33,20 @@
         $color-secondary-dark
       );
     }
+    &-2 {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-primary,
+        $color-primary-light
+      );
+    }
+    &-3 {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-tertiary-light,
+        $color-tertiary-dark
+      );
+    }
   }
 
   &:hover &__side--front {
@@ -59,10 +73,16 @@
         );
     }
     &--2 {
-      background-image: url(../../img/nat-6.jpg);
+      background-image: url(../../img/nat-6.jpg),
+        linear-gradient(to right bottom, $color-primary, $color-primary-light);
     }
     &--3 {
-      background-image: url(../../img/nat-7.jpg);
+      background-image: url(../../img/nat-7.jpg),
+        linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
     }
   }
 
@@ -90,5 +110,62 @@
         rgba($color-secondary-dark, 0.85)
       );
     }
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary, 0.85),
+        rgba($color-primary-light, 0.85)
+      );
+    }
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.85),
+        rgba($color-tertiary-dark, 0.85)
+      );
+    }
+  }
+  &__details {
+    padding: 3rem;
+    ul {
+      width: 80%;
+      margin: 0 auto;
+      list-style: none;
+      li {
+        text-align: center;
+
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+  }
+
+  &__price-box {
+    color: $color-white;
+    margin-bottom: 8rem;
+    text-align: center;
+  }
+
+  &__price-only {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-weight: 100;
+    font-size: 6rem;
   }
 }
