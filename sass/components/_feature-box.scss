@@ -5,6 +5,7 @@
   border-radius: 3px;
   padding: 2.5rem;
   box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+  transition: transform 0.3s;
 
   &__icon {
     font-size: 6rem;
@@ -15,9 +16,11 @@
       $color-primary-dark
     );
     -webkit-background-clip: text;
+    display: inline-block;
     color: transparent;
   }
 
-  &__text {
+  &:hover {
+    transform: translateY(-2rem) scale(1.03);
   }
 }
