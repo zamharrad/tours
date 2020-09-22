@@ -2,9 +2,16 @@
 0 - 600px:      Phone
 600 - 900px:    Tablet portrait
 900 - 1200px:   Tablet landscape
-[1200 - 1800]   is where our normal style apply
-1800px + :      Big Desktop
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
 
+ORDER: Base + typography > general layout + grid > page layout > components
+1em = 16px
 */
 .header {
   height: 95vh;
@@ -12,8 +19,12 @@
   background-size: cover;
   background-position: top;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  @media only screen and (max-width: 37.5em) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
   .header__logo-box {
     position: absolute;
     top: 4rem;
@@ -32,6 +43,13 @@
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 6rem; }
+    @media only screen and (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 4rem; } }
+  @media only screen and (max-width: 56.25em) {
+    .row {
+      max-width: 50rem;
+      padding: 0 3rem; } }
   .row::after {
     content: "";
     display: table;
@@ -39,7 +57,14 @@
   .row [class^="col-"] {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
-      margin-right: 6rem; }
+      margin-right: 6rem;
+      margin-bottom: 4rem; }
+      @media only screen and (max-width: 56.25em) {
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 0; } }
+    @media only screen and (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important; } }
   .row .col-1-of-2 {
     width: calc((100% - 6rem) / 2); }
   .row .col-1-of-3 {
@@ -57,6 +82,9 @@
   background-color: #333;
   padding: 10rem 0;
   font-size: 1.4rem; }
+  @media only screen and (max-width: 56.25em) {
+    .footer {
+      padding: 8rem 0; } }
   .footer__logo-box {
     text-align: center;
     margin-bottom: 8rem; }
@@ -67,6 +95,10 @@
     border-top: 1px solid #eee;
     padding-top: 2rem;
     display: inline-block; }
+    @media only screen and (max-width: 56.25em) {
+      .footer__navigation {
+        width: 100%;
+        text-align: center; } }
   .footer__list {
     list-style: none; }
   .footer__item {
@@ -88,6 +120,10 @@
     padding-top: 2rem;
     width: 80%;
     float: right; }
+    @media only screen and (max-width: 56.25em) {
+      .footer__copyright {
+        width: 100%;
+        text-align: center; } }
 
 .navigation__checkbox {
   display: none; }
@@ -103,6 +139,14 @@
   float: right;
   z-index: 2000;
   text-align: center; }
+  @media only screen and (max-width: 56.25em) {
+    .navigation__button {
+      top: 4rem;
+      right: 4rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .navigation__button {
+      top: 3rem;
+      right: 3rem; } }
 
 .navigation__background {
   height: 6rem;
@@ -116,6 +160,14 @@
   z-index: 1000;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1); }
+  @media only screen and (max-width: 56.25em) {
+    .navigation__background {
+      top: 4.5rem;
+      right: 4.5rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .navigation__background {
+      top: 3.5rem;
+      right: 3.5rem; } }
 
 .navigation__nav {
   height: 100vh;
@@ -622,7 +674,16 @@
   box-sizing: inherit; }
 
 html {
-  font-size: 10px; }
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   line-height: 1.7;
@@ -631,6 +692,9 @@ body {
   /* font-size: 16px; */
   padding: 1.5rem;
   color: gray; }
+  @media only screen and (max-width: 56.25em) {
+    body {
+      padding: 0; } }
 
 .heading-primary {
   color: white;
@@ -645,6 +709,10 @@ body {
     animation-name: moveInLeft;
     animation-duration: 1.5s;
     animation-timing-function: ease-out; }
+    @media only screen and (max-width: 37.5em) {
+      .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 5rem; } }
   .heading-primary--sub {
     font-size: 2rem;
     display: block;
@@ -653,6 +721,10 @@ body {
     animation-name: moveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-out; }
+    @media only screen and (max-width: 37.5em) {
+      .heading-primary--sub {
+        letter-spacing: 0.5rem;
+        font-size: 2rem; } }
 
 .heading-secondery {
   font-size: 3.5rem;
@@ -664,6 +736,12 @@ body {
   color: transparent;
   letter-spacing: 0.2rem;
   transition: all 0.2s; }
+  @media only screen and (max-width: 56.25em) {
+    .heading-secondery {
+      font-size: 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .heading-secondery {
+      font-size: 2.5rem; } }
   .heading-secondery:hover {
     transform: skewY(2deg) skewX(15deg); }
 
@@ -731,6 +809,9 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -30vh; }
+  @media only screen and (max-width: 56.25em) {
+    .section-about {
+      margin-top: -20vh; } }
 
 .section-features {
   padding: 20rem 0;
