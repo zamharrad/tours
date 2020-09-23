@@ -9,18 +9,23 @@
     color: inherit;
     padding: 1.5rem 2rem;
     border-radius: 2px;
-    background-color: rbga($color-white, 0.5);
+    background-color: rgba($color-white, 0.5);
     border: none;
     border-bottom: 3px solid transparent;
-    width: 70%;
+    width: 90%;
     display: block;
     transition: all 0.3s;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
 
     &:focus {
       outline: none;
       box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
       border-bottom: 3px solid $color-primary;
     }
+
     &:focus:invalid {
       border-bottom: 3px solid $color-secondary-dark;
     }
@@ -36,6 +41,7 @@
     margin-left: 2rem;
     margin-top: 0.7rem;
     display: block;
+    transition: all 0.3s;
   }
 
   &__input:placeholder-shown + &__label {
@@ -45,36 +51,43 @@
   }
 
   &__radio-group {
-    width: 40%;
+    width: 49%;
     display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
+
   &__radio-input {
     display: none;
   }
+
   &__radio-label {
-    cursor: pointer;
     font-size: $default-font-size;
+    cursor: pointer;
     position: relative;
-    padding-left: 4rem;
+    padding-left: 4.5rem;
   }
 
   &__radio-button {
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
     border: 5px solid $color-primary;
     border-radius: 50%;
     display: inline-block;
-    left: 0;
-    top: -0.48rem;
     position: absolute;
+    left: 0;
+    top: -0.4rem;
 
     &::after {
       content: "";
-      width: 1.3rem;
-      height: 1.3rem;
-      position: absolute;
-      border-radius: 50%;
       display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
